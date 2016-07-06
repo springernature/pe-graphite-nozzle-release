@@ -1,0 +1,43 @@
+#!/bin/bash -e -u
+
+RUN_DIR=/var/vcap/sys/run/graphite-nozzle
+LOG_DIR=/var/vcap/sys/log/graphite-nozzle
+PIDFILE=$RUN_DIR/graphite-nozzle.pid
+
+case $1 in
+
+start)
+
+mkdir -p $RUN_DIR
+mkdir -p $LOG_DIR
+
+chown -R vcap:vcap $LOG_DIR
+
+echo $$ > $PIDFILE
+
+exec chpst -u vcap:vcap /var/vcap/packages/graphite-nozzle/graphite-nozzle \
+--doppler-endpoint=<%=p("graphite-nozzle.doppler_endpoint")%> \
+--uaa-endpoint=<%=p("graphite-nozzle.uaa_endpoint")%> \ 
+--subscription-id=<%=p("graphite-nozzle.subscription_id")%> \
+--statsd-endpoint=<%=p("graphite-nozzle.statsd_endpoint")%> \
+--statsd-prefix=<%=p("graphite-nozzle.statsd_prefix")%> \
+--prefix-job <%=p("graphite-nozzle.prefix_job")%>\
+--username=<%=p("graphite-nozzle.username")%> \
+--password=<%=p("graphite-nozzle.password")%> \
+--skip-ssl-validation <%=p("graphite-nozzle.skip_ssl_validation")%>\
+--debug <%=p("graphite-nozzle.debug")%>    \       
+>>$LOG_DIR/graphite-nozzle.stdout.log \
+2>>$LOG_DIR/graphite-nozzle.stderr.log
+;;
+
+stop)
+kill -9 `cat $PIDFILE`
+rm -f $PIDFILE
+;;
+
+*)
+echo "Usage: graphite-nozzle {start|stop}"
+
+;;
+
+esac

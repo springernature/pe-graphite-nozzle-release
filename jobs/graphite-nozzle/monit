@@ -1,0 +1,5 @@
+check process graphite-nozzle
+  with pidfile /var/vcap/sys/run/graphite-nozzle/graphite-nozzle.pid
+  start program "/var/vcap/jobs/graphite-nozzle/bin/graphite-nozzle-ctl start"
+  stop program "/var/vcap/jobs/graphite-nozzle/bin/graphite-nozzle-ctl stop"
+  group vcap

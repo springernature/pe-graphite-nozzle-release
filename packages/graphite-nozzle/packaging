@@ -1,0 +1,16 @@
+set -e -x
+
+echo "Extracting graphite-nozzle..."
+tar xvf graphite-nozzle/
+
+echo "Setting the GO env variables ..."
+export GOPATH=${BOSH_COMPILE_TARGET}/go-carbon-0.7/_vendor
+export GOROOT=$(readlink -nf /var/vcap/packages/golang1.6)
+export PATH=${GOROOT}/bin:${PATH}
+
+echo "Installing graphite-nozzle ..."
+pushd go-carbon-0.7
+  go build -o go-carbon
+  mkdir -p ${BOSH_INSTALL_TARGET}/bin
+  install -m 0755 graphite-nozzle ${BOSH_INSTALL_TARGET}/bin
+popd
