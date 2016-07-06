@@ -5,4 +5,4 @@ dependencies:
     - golang1.6
 
 files:
-    - graphite-nozzle/src/github.com/**/*
+    - graphite-nozzle/graphite-nozzle-125839f.tar.gz
