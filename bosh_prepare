@@ -1,0 +1,13 @@
+bosh_prepare() {
+  for script in $(pwd)/packages/*/prepare ; do
+    if [ -s ${script} ]; then
+      echo "* Procesing ${script} ..."
+      (
+        cd src
+        ${SHELL} ${script} 
+      )
+    fi
+  done
+}
+
+bosh_prepare
