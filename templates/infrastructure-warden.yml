@@ -12,7 +12,7 @@ update:
   update_watch_time: 1000-30000
 
 jobs:
-  - name: graphite-nozzle
+  - name: graphite-nozzle-z1
     networks:
       - name: graphite-nozzle
         static_ips: (( static_ips(1, 2) ))

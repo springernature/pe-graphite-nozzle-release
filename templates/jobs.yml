@@ -9,7 +9,7 @@ update:
   serial: false
 
 jobs:
-  - name: graphite_nozzle_z1
+  - name: graphite-nozzle-z1
     templates:
       - name: graphite-nozzle
     instances: 1
