@@ -1,7 +1,7 @@
 ---
 name: graphite-nozzle
 templates:
-  graphite-nozzle-ctl.erb: bin/graphite-nozzle-ctl
+  graphite-nozzle-ctl.erb: bin/graphite-nozzle-ctl.erb
 
 packages:
 - graphite-nozzle

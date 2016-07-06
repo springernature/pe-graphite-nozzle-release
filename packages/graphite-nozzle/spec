@@ -1,8 +1,8 @@
 ---
-name: example-nozzle
+name: graphite-nozzle
 
 dependencies:
     - golang1.6
 
 files:
-    - github.com/**/*
+    - graphite-nozzle/src/github.com/**/*
