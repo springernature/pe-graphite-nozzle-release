@@ -1,1 +1,21 @@
---- {}
+---
+git/git-1.9.2.tar.gz:
+  object_id: 8f4765e2-56e3-448b-851c-6cb8cc12acbb
+  sha: 2afca9ed872e1c035e6b8878e296bffd7b69bf8f
+  size: 4832136
+golang1.6/go1.6.2.linux-amd64.tar.gz:
+  object_id: a47f4275-5567-4d6e-be2a-46831a872532
+  sha: b8318b09de06076d5397e6ec18ebef3b45cd315d
+  size: 84840658
+python/Python-2.7.11.tgz:
+  object_id: 4fe2c83d-5ca0-425a-9e63-637f6b2b9acb
+  sha: 62a0b1b703d42999cc4aa9ee3c55eb7efe35802a
+  size: 16856409
+graphite-nozzle/graphite-nozzle-125839f.tar.gz:
+  object_id: b7ef3058-9ca9-4125-9b11-b9e10bbb80b2
+  sha: a4ce792c7451bb9c13b37c11635d0150a218d793
+  size: 209806
+autoconf/autoconf-2.69.tar.gz:
+  object_id: de836cf6-1cd0-4175-b05d-9c983cad9ee4
+  sha: 562471cbcb0dd0fa42a76665acf0dbb68479b78a
+  size: 1927468
