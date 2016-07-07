@@ -1,39 +1,42 @@
 ---
 name: graphite-nozzle
 templates:
-  graphite-nozzle-ctl.erb: bin/graphite-nozzle-ctl.erb
+  bin/graphite-nozzle-ctl.erb: bin/graphite-nozzle-ctl
+  helpers/ctl_setup.sh: helpers/ctl_setup.sh
+  helpers/ctl_utils.sh: helpers/ctl_utils.sh
+  data/properties.sh.erb: data/properties.sh
 
 packages:
 - graphite-nozzle
 
 properties:
-  graphite-nozzle.doppler_endpoint:
+  graphite_nozzle.doppler_endpoint:
     description: "Doppler endpoint"
     default: "wss://doppler.10.244.0.34.xip.io:443"
-  graphite-nozzle.uaa_endpoint:
+  graphite_nozzle.uaa_endpoint:
     description: "UAA endpoint"
     default: "https://uaa.10.244.0.34.xip.io"
-  graphite-nozzle.subscription_id:
+  graphite_nozzle.subscription_id:
     description: "Id for the subscription"
     default: "firehose"
-  graphite-nozzle.statsd_endpoint:
+  graphite_nozzle.statsd_endpoint:
     description: "Statsd endpoint"
     default: "10.244.11.2:8125"
-  graphite-nozzle.statsd_prefix:
+  graphite_nozzle.statsd_prefix:
     description: "Statsd prefix"
     default: "mycf."
-  graphite-nozzle.prefix_job:
+  graphite_nozzle.prefix_job:
     description: "Prefix metric names with job.index"
-    default: True
-  graphite-nozzle.username:
+    default: true
+  graphite_nozzle.username:
     description: "Firehose username"
     default: "admin"
-  graphite-nozzle.password:
+  graphite_nozzle.password:
     description: "Firehose password"
     default: "admin"
-  graphite-nozzle.skip_ssl_validation:
+  graphite_nozzle.skip_ssl_validation:
     description: ""
-    default: "True"
-  graphite-nozzle.debug:
+    default: true
+  graphite_nozzle.debug:
     description: "Please don't Enable debug mode. This disables forwarding to statsd and prints to stdout"
-    default: True
+    default: false

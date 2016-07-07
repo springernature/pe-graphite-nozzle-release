@@ -1,8 +1,10 @@
-#!/bin/bash -e -u
+#!/bin/bash
 
-RUN_DIR=/var/vcap/sys/run/graphite-nozzle
-LOG_DIR=/var/vcap/sys/log/graphite-nozzle
-PIDFILE=$RUN_DIR/graphite-nozzle.pid
+set -e # exit immediately if a simple command exits with a non-zero status
+set -u # report the usage of uninitialized variables
+
+# Setup env vars and folders for the webapp_ctl script
+source /var/vcap/jobs/graphite-nozzle/helpers/ctl_setup.sh 'graphite-nozzle'
 
 case $1 in
 
@@ -13,26 +15,26 @@ mkdir -p $LOG_DIR
 
 chown -R vcap:vcap $LOG_DIR
 
-echo $$ > $PIDFILE
+pid_guard $PIDFILE $JOB_NAME
+  (
+    {
+      exec chpst -u vcap:vcap /var/vcap/packages/graphite-nozzle/bin/graphite-nozzle \
+        --doppler-endpoint="<%=p("graphite_nozzle.doppler_endpoint")%>" \
+        --uaa-endpoint="<%=p("graphite_nozzle.uaa_endpoint")%>" \
+        --subscription-id="<%=p("graphite_nozzle.subscription_id")%>" \
+        --statsd-endpoint="<%=p("graphite_nozzle.statsd_endpoint")%>" \
+        --statsd-prefix="<%=p("graphite_nozzle.statsd_prefix")%>" \
+        --username="<%=p("graphite_nozzle.username")%>" \
+        --password="<%=p("graphite_nozzle.password")%>" \
+        <% if p('graphite_nozzle.prefix_job') %>--prefix-job <% end %><% if p('graphite_nozzle.debug') %>--debug <% end %><% if p('graphite_nozzle.skip_ssl_validation') %>--skip-ssl-validation<% end %>
+      } &>>$LOG_DIR/graphite-nozzle.stdout.log
+    ) &
 
-exec chpst -u vcap:vcap /var/vcap/packages/graphite-nozzle/graphite-nozzle \
---doppler-endpoint=<%=p("graphite-nozzle.doppler_endpoint")%> \
---uaa-endpoint=<%=p("graphite-nozzle.uaa_endpoint")%> \ 
---subscription-id=<%=p("graphite-nozzle.subscription_id")%> \
---statsd-endpoint=<%=p("graphite-nozzle.statsd_endpoint")%> \
---statsd-prefix=<%=p("graphite-nozzle.statsd_prefix")%> \
---prefix-job <%=p("graphite-nozzle.prefix_job")%>\
---username=<%=p("graphite-nozzle.username")%> \
---password=<%=p("graphite-nozzle.password")%> \
---skip-ssl-validation <%=p("graphite-nozzle.skip_ssl_validation")%>\
---debug <%=p("graphite-nozzle.debug")%>    \       
->>$LOG_DIR/graphite-nozzle.stdout.log \
-2>>$LOG_DIR/graphite-nozzle.stderr.log
+echo $! > $PIDFILE
 ;;
 
 stop)
-kill -9 `cat $PIDFILE`
-rm -f $PIDFILE
+ kill_and_wait $PIDFILE
 ;;
 
 *)
