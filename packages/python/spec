@@ -1,0 +1,7 @@
+# packages/python/spec
+
+---
+name: python
+dependencies: []
+files:
+- python/Python-2.7.11.tgz

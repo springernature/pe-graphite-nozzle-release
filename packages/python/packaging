@@ -1,0 +1,13 @@
+# packages/python/packaging
+
+set -e
+set -u
+
+VERSION=2.7.11
+
+cd python
+tar xfz Python-${VERSION}.tgz
+cd Python-${VERSION}
+./configure  --prefix=${BOSH_INSTALL_TARGET}
+make
+make install

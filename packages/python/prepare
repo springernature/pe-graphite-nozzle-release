@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+PACKAGE="python"
+VERSION="2.7.11"
+FILE="Python-${VERSION}.tgz"
+URL="https://www.python.org/ftp/python/2.7.11/Python-${VERSION}.tgz"
+
+if [ ! -s "${PACKAGE}/${FILE}" ]; then
+  echo "Downloading ${URL} ..."
+  mkdir -p ${PACKAGE}
+  curl -s "${URL}" -o "${PACKAGE}/${FILE}"
+fi
