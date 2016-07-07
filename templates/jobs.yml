@@ -20,4 +20,13 @@ jobs:
 networks: (( param "please set networks" ))
 
 properties:
-  graphite-nozzle:
+  graphite_nozzle:
+    doppler_endpoint: "wss://doppler.10.244.0.34.xip.io:443"
+    uaa_endpoint: "https://uaa.10.244.0.34.xip.io"
+    subscription_id: "firehose"
+    statsd_endpoint: "10.244.11.2:8125"
+    statsd_prefix: "mycf."
+    prefix_job: true
+    username: "admin"
+    password: "admin"
+    skip_ssl_validation: true
