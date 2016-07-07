@@ -1,0 +1,20 @@
+
+# packages/git/packaging
+
+# abort script on any command that exit with a non zero value
+set -e
+set -u
+
+tar xzf git/git-1.9.2.tar.gz
+
+export HOME=/home/vcap
+cp /var/vcap/packages/python/bin/python /usr/bin/python
+cp /var/vcap/packages/autoconf/bin/autoconf /usr/bin/autoconf
+
+(
+  cd git-1.9.2
+  make configure
+  ./configure --prefix=${BOSH_INSTALL_TARGET}
+  make -j 3
+  make install
+)

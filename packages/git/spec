@@ -1,0 +1,9 @@
+# packages/git/spec
+
+---
+name: git
+dependencies:
+- autoconf
+- python
+files:
+- git/git-1.9.2.tar.gz
