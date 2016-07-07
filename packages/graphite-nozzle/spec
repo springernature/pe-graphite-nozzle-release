@@ -2,6 +2,7 @@
 name: graphite-nozzle
 
 dependencies:
+    - git
     - golang1.6
 
 files:

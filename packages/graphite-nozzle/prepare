@@ -5,6 +5,9 @@ VERSION="125839f"
 FILE="graphite-nozzle-${VERSION}.tar.gz"
 URL="https://github.com/pivotal-cf/graphite-nozzle.git"
 
+cp /var/vcap/packages/git/bin/git /usr/bin/git
+
+
 if [ ! -s "${PACKAGE}/${FILE}" ]; then
   mkdir -p ${PACKAGE}
   echo "> Cloning source repo ${URL} ..."

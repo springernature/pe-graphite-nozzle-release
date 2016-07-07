@@ -1,18 +1,26 @@
 set -e -x
 
+cp /var/vcap/packages/git/bin/git /usr/bin/git
+
 echo "Extracting graphite-nozzle package..."
-tar xvf graphite-nozzle-125839f.tar.gz
+tar xvf graphite-nozzle/graphite-nozzle-125839f.tar.gz
+
+mkdir -p gowork/src/github.com/pivotal-cf
+mv graphite-nozzle-125839f gowork/src/github.com/pivotal-cf/graphite-nozzle
 
 echo "Setting the GO env variables..."
-export GOROOT=$(readlink -nf /var/vcap/packages/golang1.6)
-export PATH=$GOROOT/bin:$PATH
-export PATH=${GOROOT}/bin:${PATH}
 
+export GOPATH=${BOSH_COMPILE_TARGET}/gowork
+export GOROOT=$(readlink -nf /var/vcap/packages/golang1.6)
+export PATH=${GOROOT}/bin:${GOPATH}/bin:${PATH}
 
 echo "Installing graphite-nozzle..."
-pushd graphite-nozzle-125839f
+
+go get github.com/tools/godep
+
+pushd $GOPATH/src/github.com/pivotal-cf/graphite-nozzle
   godep restore
-  godep go build -o graphite-nozzle
+  godep go install
   mkdir -p ${BOSH_INSTALL_TARGET}/bin
-  install -m 0755 graphite-nozzle ${BOSH_INSTALL_TARGET}/bin
+  install -m 0755 $GOPATH/bin/graphite-nozzle ${BOSH_INSTALL_TARGET}/bin
 popd
