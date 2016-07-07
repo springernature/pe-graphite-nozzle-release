@@ -1,5 +1,6 @@
 set -e
+set -u
 
 echo "Extracting go binaries ... "
-tar xzf golang1.6/go1.6.linux-amd64.tar.gz
+tar xzf golang1.6/go1.6.2.linux-amd64.tar.gz
 cp -R go/* ${BOSH_INSTALL_TARGET}
