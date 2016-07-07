@@ -1,0 +1,15 @@
+
+# packages/git/packaging
+
+# abort script on any command that exit with a non zero value
+set -e
+
+VERSION=2.69
+
+tar xzf autoconf/autoconf-${VERSION}.tar.gz
+
+cd autoconf-${VERSION}
+
+./configure  --prefix=${BOSH_INSTALL_TARGET}
+make
+make install

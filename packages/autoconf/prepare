@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+PACKAGE="autoconf"
+VERSION="2.69"
+FILE="autoconf-${VERSION}.tar.gz"
+URL="http://ftp.gnu.org/gnu/autoconf/autoconf-${VERSION}.tar.gz"
+
+if [ ! -s "${PACKAGE}/${FILE}" ]; then
+  echo "Downloading ${URL} ..."
+  mkdir -p ${PACKAGE}
+  curl -s -L "${URL}" -o "${PACKAGE}/${FILE}"
+fi
