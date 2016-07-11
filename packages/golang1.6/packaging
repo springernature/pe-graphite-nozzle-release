@@ -1,3 +1,7 @@
+# packages/golang1.6/packaging
+
+# abort script on any command that exit with a non zero value
+# treat unset variables as an error when substituting.
 set -e
 set -u
 

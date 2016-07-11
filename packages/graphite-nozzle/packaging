@@ -1,21 +1,26 @@
-set -e -x
+# packages/graphite-nozzle/packaging
 
-cp /var/vcap/packages/git/bin/git /usr/bin/git
+# abort script on any command that exit with a non zero value
+# treat unset variables as an error when substituting.
+set -e
+set -u
+
+PATH=$PATH:/var/vcap/packages/git/bin/
+export PATH
 
 echo "Extracting graphite-nozzle package..."
 tar xvf graphite-nozzle/graphite-nozzle-125839f.tar.gz
 
+echo "Creating the package directory..."
 mkdir -p gowork/src/github.com/pivotal-cf
 mv graphite-nozzle-125839f gowork/src/github.com/pivotal-cf/graphite-nozzle
 
 echo "Setting the GO env variables..."
-
 export GOPATH=${BOSH_COMPILE_TARGET}/gowork
 export GOROOT=$(readlink -nf /var/vcap/packages/golang1.6)
 export PATH=${GOROOT}/bin:${GOPATH}/bin:${PATH}
 
 echo "Installing graphite-nozzle..."
-
 go get github.com/tools/godep
 
 pushd $GOPATH/src/github.com/pivotal-cf/graphite-nozzle
