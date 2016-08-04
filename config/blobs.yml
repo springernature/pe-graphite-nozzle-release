@@ -19,3 +19,11 @@ autoconf/autoconf-2.69.tar.gz:
   object_id: de836cf6-1cd0-4175-b05d-9c983cad9ee4
   sha: 562471cbcb0dd0fa42a76665acf0dbb68479b78a
   size: 1927468
+graphite-nozzle-f7f1e15.tar.gz:
+  object_id: 18af1dff-c754-4e49-909c-af5c8a85aa83
+  sha: 35c036a01ac84ef4915e3b2e2f393c0d3583e85b
+  size: 266354
+graphite-nozzle/graphite-nozzle-f7f1e15.tar.gz/graphite-nozzle-f7f1e15.tar.gz:
+  object_id: 838c83df-4fe7-4372-b1d1-f509426326cb
+  sha: 0d80aca1b2f79c278caf320dbadbbab81522679b
+  size: 266345
