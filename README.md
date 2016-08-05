@@ -54,6 +54,56 @@ templates/make_manifest warden
 bosh -n deploy
 ```
 
+### How to update the graphite-nozzle release
+
+##### Modify your current release
+
+- Modify jobs and packages to meet your needs (do not forget to update the prepare scripts under `packages/{package}/prepare`)
+
+##### Generate the updated packages and release
+
+- run `./bosh_prepare` from the root of the project
+  * the `./src` directory will be populated with the new versions of the packages
+- run `add blob <local_path> [<blob_dir>]` for all the packages which need being updated
+- run `bosh create release --force`
+
+##### It's now time to test your release...
+
+- run `bosh target {your_bosh_test_ip}` to make sure you're pointing to the right bosh
+- run `bosh upload release {path_of_the_generated_Release_manifest}`
+- modify your bosh manifest with the updated release version ie:
+
+```
+releases:
+  - name: graphite-nozzle
+    version: 5+dev.1
+```
+
+- run `bosh deployment {graphite-nozzle manifest path}`
+- run `bosh deploy`
+- Wait for compilation, vm updates and so on... 
+
+##### Test your release and if you are happy with it...
+
+- run `bosh upload blobs` 
+- Commit your changes
+- run `bosh create release --final`
+- run `bosh upload release {path_of_the_generated_final_Release_manifest}`
+- modify your bosh manifest with the updated release version ie:
+
+```
+releases:
+  - name: graphite-nozzle
+    version: 6
+```
+
+- run `bosh deployment {graphite-nozzle manifest path}`
+- run `bosh deploy`
+- Wait for compilation, vm updates and so on... 
+
+##### Clean-up
+- Finally Clean up the dev release from bosh: `bosh delete release {devrelease}`
+
 ### Development
 
 As a developer of this release, create new releases and upload them:
