@@ -23,3 +23,7 @@ graphite-nozzle/graphite-nozzle-f7f1e15.tar.gz:
   object_id: c01aca7c-a780-44b7-be98-317aa4cd7b16
   sha: 6ce708f764615934b0e1c41602023386fb58d73a
   size: 266364
+graphite-nozzle/graphite-nozzle-c7c3cea.tar.gz:
+  object_id: 0e9d3eaf-f65c-477d-80c6-0ab6e1f60311
+  sha: 1098cf925b4db5b781cf0dbebc8b5a195e437910
+  size: 266470

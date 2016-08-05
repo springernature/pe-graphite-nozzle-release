@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 PACKAGE="graphite-nozzle"
-VERSION="f7f1e15"
+VERSION="c7c3cea"
 FILE="graphite-nozzle-${VERSION}.tar.gz"
 URL="https://github.com/SpringerPE/graphite-nozzle.git"
 

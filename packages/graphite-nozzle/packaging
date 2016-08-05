@@ -5,7 +5,7 @@
 set -e
 set -u
 
-VERSION="f7f1e15"
+VERSION="c7c3cea"
 PATH=$PATH:/var/vcap/packages/git/bin/
 export PATH
 
