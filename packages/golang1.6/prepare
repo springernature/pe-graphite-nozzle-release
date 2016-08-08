@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+set -e
+set -u
+
 PACKAGE="golang1.6"
 VERSION="1.6.2"
 FILE="go${VERSION}.linux-amd64.tar.gz"

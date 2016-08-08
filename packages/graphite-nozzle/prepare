@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 
+set -e
+set -u
+
 PACKAGE="graphite-nozzle"
 VERSION="c7c3cea"
 FILE="graphite-nozzle-${VERSION}.tar.gz"
 URL="https://github.com/SpringerPE/graphite-nozzle.git"
-
-cp /var/vcap/packages/git/bin/git /usr/bin/git
 
 
 if [ ! -s "${PACKAGE}/${FILE}" ]; then

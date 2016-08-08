@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+set -e
+set -u
+
 PACKAGE="autoconf"
 VERSION="2.69"
 FILE="autoconf-${VERSION}.tar.gz"

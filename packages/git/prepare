@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+set -e
+set -u
+
 PACKAGE="git"
 VERSION="1.9.2"
 FILE="git-${VERSION}.tar.gz"

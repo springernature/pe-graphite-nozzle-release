@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+set -e
+set -u
+
 PACKAGE="python"
 VERSION="2.7.11"
 FILE="Python-${VERSION}.tgz"
