@@ -64,7 +64,7 @@ bosh -n deploy
 
 - run `./bosh_prepare` from the root of the project
   * the `./src` directory will be populated with the new versions of the packages
-- run `add blob <local_path> [<blob_dir>]` for all the packages which need being updated
+- run `bosh add blob <local_path> [<blob_dir>]` for all the packages which need being updated
 - run `bosh create release --force`
 
 ##### It's now time to test your release...
