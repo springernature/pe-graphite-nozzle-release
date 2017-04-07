@@ -6,4 +6,4 @@ dependencies:
     - golang1.6
 
 files:
-    - graphite-nozzle/graphite-nozzle-24a2b33.tar.gz
+    - graphite-nozzle/graphite-nozzle-57e56fe.tar.gz

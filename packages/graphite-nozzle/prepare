@@ -4,7 +4,7 @@ set -e
 set -u
 
 PACKAGE="graphite-nozzle"
-VERSION="24a2b33"
+VERSION="57e56fe"
 FILE="graphite-nozzle-${VERSION}.tar.gz"
 URL="https://github.com/SpringerPE/graphite-nozzle.git"
 
