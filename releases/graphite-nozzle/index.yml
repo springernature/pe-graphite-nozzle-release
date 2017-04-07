@@ -14,4 +14,6 @@ builds:
     version: '6'
   05ab42b4-9e26-4408-a6b5-a3360733d1fa:
     version: '7'
+  82ac68b3-0b7e-4c5f-bc56-62ce2a47283b:
+    version: '8'
 format-version: '2'

@@ -1,0 +1,40 @@
+---
+packages:
+- name: git
+  version: a9411ef1ccef9fb10625cceee85228edf78b6402
+  fingerprint: a9411ef1ccef9fb10625cceee85228edf78b6402
+  sha1: 18d79ba4ea99357aaccf4b2293b800c984d5e910
+  dependencies:
+  - autoconf
+  - python
+- name: golang1.6
+  version: 14d1fafdf29845180b454e8794f1a6f643d1a9a2
+  fingerprint: 14d1fafdf29845180b454e8794f1a6f643d1a9a2
+  sha1: 8834ac8d904cb975a5894adb29f24cd0b17ea2d3
+  dependencies: []
+- name: python
+  version: e681813a787efecdbb6b3e28d75e844c5e816acc
+  fingerprint: e681813a787efecdbb6b3e28d75e844c5e816acc
+  sha1: d89cb7eba008300b3e609422d6b96e19e60ee170
+  dependencies: []
+- name: graphite-nozzle
+  version: cb01bb6ce50465e0950d990ab4da93984134cb7c
+  fingerprint: cb01bb6ce50465e0950d990ab4da93984134cb7c
+  sha1: 651605503e61cb33baf4e73a9a92b0c02984d5e2
+  dependencies:
+  - git
+  - golang1.6
+- name: autoconf
+  version: a417269b8e275c205d97b5e3a88f915509497324
+  fingerprint: a417269b8e275c205d97b5e3a88f915509497324
+  sha1: b697f0401d002d5229250cccfa03541652e397ba
+  dependencies: []
+jobs:
+- name: graphite-nozzle
+  version: 76ac9040ad678326936430294eda60e06a06b2f2
+  fingerprint: 76ac9040ad678326936430294eda60e06a06b2f2
+  sha1: 2b6738f7b660282165d69a61c960823bc6534190
+commit_hash: 784cab26
+uncommitted_changes: true
+name: graphite-nozzle
+version: '8'
