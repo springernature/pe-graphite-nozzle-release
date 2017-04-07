@@ -31,3 +31,11 @@ graphite-nozzle/graphite-nozzle-24a2b33.tar.gz:
   object_id: d307af93-9b6f-489f-ae47-caaec013de50
   sha: 5f4dddb4db16b86fb86b10fabb8984e7fa4eb16a
   size: 266479
+golang1.6/go1.6.3.linux-amd64.tar.gz:
+  object_id: f1e53bf7-4d65-4f33-b0b4-78d9e8c8f16a
+  sha: 5e916ba4dd8c2fc43beafca4c08b334c4d0686f3
+  size: 84856920
+graphite-nozzle/graphite-nozzle-57e56fe.tar.gz:
+  object_id: 47e6a802-0124-4feb-9aa6-c87e5ee9fc50
+  sha: 49109248d0133accc95c0b7fd62c47607440fc0e
+  size: 267493
