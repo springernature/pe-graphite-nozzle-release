@@ -23,6 +23,7 @@ pid_guard $PIDFILE $JOB_NAME
         --uaa-endpoint="<%=p("graphite_nozzle.uaa_endpoint")%>" \
         --subscription-id="<%=p("graphite_nozzle.subscription_id")%>" \
         --statsd-endpoint="<%=p("graphite_nozzle.statsd_endpoint")%>" \
+        --statsd-protocol="<%=p("graphite_nozzle.statsd_protocol")%>" \
         --statsd-prefix="<%=p("graphite_nozzle.statsd_prefix")%>" \
         --username="<%=p("graphite_nozzle.username")%>" \
         --password="<%=p("graphite_nozzle.password")%>" \
