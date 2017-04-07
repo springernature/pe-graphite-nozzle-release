@@ -3,7 +3,7 @@ bosh_prepare() {
     if [ -s ${script} ]; then
       echo "* Procesing ${script} ..."
       (
-        cd src
+        cd blobs
         ${SHELL} ${script} 
       )
     fi
